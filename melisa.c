@@ -1,4 +1,4 @@
-//farklı şekilde bug düzeltme
+//bug 
 
 #include "stdio.h"
 #include "stdlib.h"
@@ -12,13 +12,14 @@ int main()
         int flag;
         float ondalik;
     } data;
-
+    
     data veri={"Akif"};
-    veri.name;
-    printf("Name = %s\n", veri.name);
-    veri.flag=1;
-    printf("flag = %d\n", veri.flag);
-    veri.ondalik=1.5;
-    printf("f = %f\n", veri.ondalik);
+    printf("%s\n",veri.name);
+    veri.flag = 1;
+    printf("%d\n",veri.flag);
+    veri.ondalik = 1.5;
+    printf("%f\n",veri.ondalik);
+    
     return 0;
+    
 }
