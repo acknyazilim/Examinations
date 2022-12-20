@@ -7,16 +7,16 @@ int main()
     typedef union
     {
         char name[10];
-        int flag;
-        float ondalik;
+        int yas;
+        float maas;
     } data;
     data veri;
     //char name[10] = 'Akif'; burası hatalı
     strcpy(veri.name,"Akif");
-    printf("Name = %s\n", veri.name);
-    veri.flag = 1;
-    printf("flag = %d\n", veri.flag);
-    veri.ondalik = 1.5;
-    printf("f = %f\n", veri.ondalik);
+    printf("Isim = %s\n", veri.name);
+    veri.yas = 36;
+    printf("Yas = %d\n", veri.yas);
+    veri.maas = 85000;
+    printf("Maas = %2.f\n", veri.maas);
     return 0;
 }
