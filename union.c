@@ -1,27 +1,35 @@
-// This is about a union
+
 #include "stdio.h"
 #include "stdlib.h"
 #include "string.h"
 
-union bilgi{
-    int cikistarihi;
-    char filmismi[30];
-    char senaristismi[20];
+enum gunler {
+    pazartesi,
+    sali,
+    carsamba,
+    persembe,
+    cuma,
+    cumartesi,
+    pazar
 };
 
-int main(void){
-    union bilgi veri;
-    printf("cikis tarihi:\n");
-    veri.cikistarihi = 2022;
-     printf("cikistarihi ismi:\n");
-    strcpy(veri.filmismi,"avatar");
-    printf("senarist ismi:\n");
-    strcpy(veri.senaristismi,"james");  
-   
-    printf("%d",veri.cikistarihi);
-    printf("%s",veri.filmismi);
-    printf("%s",veri.senaristismi);
-  
-    
+union gun {
+    enum gunler days;
+    char name[10];
+};
+
+int main() {
+    union gun day;
+    day.days = cuma;
+    printf("%d ", day.days);
+    strcpy(day.name, "cuma");
+    printf("%s", day.name);
+    if(strcmp(day.name,"cuma")==0){
+        printf("\nbugün cuma");
+    }
+    else{
+        printf("bugün cuma değil");
+    }
     return 0;
+
 }
