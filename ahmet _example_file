@@ -1,0 +1,41 @@
+//first we took a number from user then we wrote even and odd values from zero until number that we took from user , on the  file and reading the file.
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+
+FILE *file;
+file=fopen("metinbelgesi4.txt","w");
+
+  int n;
+printf("please enter a number\n");
+scanf("%d",&n);
+int i;
+int karakter;
+for(i=0;i<=n;i++)
+{
+    if(i%2==0)
+    {
+        fprintf(file," this is a even number %d\n",i);
+    }
+    else{
+        fprintf(file,"this is a odd number %d\n",i);
+    }
+}
+fclose(file);
+printf("informations were written on the file\n");
+printf("reading the file\n");
+file=fopen("metinbelgesi4.txt","r");
+do
+{
+    karakter=getc(file);
+    if(karakter!=EOF)
+    {
+        putchar(karakter);
+    }
+}while(karakter!=EOF);
+fclose(file);
+
+    return 0;
+}
