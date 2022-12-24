@@ -1,0 +1,70 @@
+//hocam arkada dersler.txt dosyasını olusturup çalıştırdığımızda birinci ögrenci bilgilerini alırken sorun şıkmıyor 
+//ama ikinci ögrencide problem çıkıyor bi bakabilir misiniz
+#include <stdio.h>
+
+#include <stdlib.h>
+ struct ogrenci
+ {
+    float vize;
+    float fin;
+    float grade;
+    char ad[10];
+    char soyad[48];
+    char ders[50];
+
+};
+
+int main()
+{
+    FILE *dosya;
+                 int i,n;
+
+                printf("please  how much student's information enter in system\n ");
+              scanf("%d",&n);
+            fprintf(dosya,"the number of students registered in the system:%d",n);
+
+    struct ogrenci *student[n];
+
+    dosya=fopen("dersler.txt","a");
+    if(dosya==NULL)
+    {
+        printf("the file is not find\n");
+    }
+    else{
+
+
+    for(i=0;i<n;i++)
+    {
+        fflush(stdin);
+       printf("please %d enter student's name:",i+1);
+     gets(student[i]->ad);
+
+          fflush(stdin);
+             printf("please enter  %d student's surname:",i+1);
+             scanf("%s",&student[i]->soyad);
+
+        printf("please enter grade of vize:");
+        scanf("%f",&student[i]->vize);
+
+            printf("please enter grade of final:");
+        scanf("%f",&student[i]->fin);
+
+        student[i]->grade=student[i]->vize*40/100+student[i]->fin*60/100;
+
+
+
+        fprintf(dosya,"%s\n",student[i]->ad);
+          fprintf(dosya,"%s\n",student[i]->soyad);
+           fprintf(dosya,"%.2f\n",student[i]->vize);
+           fprintf(dosya,"%.2f\n",student[i]->fin);
+        fprintf(dosya,"grade of student:%f",student[i]->grade);
+
+
+    }
+         fclose(dosya);
+
+    }
+
+
+    return 0;
+}
